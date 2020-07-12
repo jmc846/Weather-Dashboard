@@ -1,4 +1,4 @@
-var APIkey = "e0d9c528e3291fdb870ce8252b3e562b"
+var APIkey = "e0d9c528e3291fdb870ce8252b3e562b";
 var queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
   "q=USA&appid=" + APIkey;
 var card = $("<div>").addClass("card");
@@ -8,22 +8,21 @@ var temperature = $("<p>").addClass("cardText").text("Temperature");
 var humidity = $("<p>").addClass("cardText").text("Humidity");
 var windSpeed = $("<p>").addClass("cardText").text("Wind-speed");
 var uvIndex = $("<p>").addClass("cardText").text("Uv-Index");
-var citiesStored = localStorage.getItem("city")
-var citySearch = localStorage.getItem("citySearch")
+var citiesStored = localStorage.getItem("city");
+var citySearch = localStorage.getItem("citySearch");
 var currentForecast = $("currentForecast").empty();
-var futureForecast = $("futureForecast");
-
+var futureForecast = $("futureForecast").empty();
 cardBody.append("#temperature");
-card.append(cardBody)
+card.append(cardBody);
 $("#current").append(card);
 
 
 
 // ajax function to obtain weather data
-$.ajax({
-  url: queryUrl,
-  method: "GET"
-}).then(function (response) { });
+// $.ajax({
+//   url: queryUrl,
+//   method: "GET"
+// }).then(function (response) { });
 
 // GIVEN a weather dashboard with form inputs
 function getWeather(userInput) {
@@ -32,17 +31,14 @@ function getWeather(userInput) {
     method: "GET",
     dataType: "json",
     success: function (data) {
-      if (inputStorage.indexOf(userInput) === -1)
+      if (inputStorage.indexOf(userInput) === -1){
         inputStorage.push(userInput)
-      window.localStorage.setItem("inputStorage")
+      window.localStorage.setItem("inputStorage", JSON.stringify(inputStorage)),
 
       searchHistory(userInput)
-    }
-$("#current").empty();
-
-
+    }}
     // // WHEN I search for a city-Event listener need for search city button 
-
+  });
     $("#citysearch").on("click", function () {
       getWeather($(this).text());
       console.log(this)
@@ -66,7 +62,7 @@ $("#current").empty();
       });
 
       // // THEN I am presented with current and future conditions for that city and that city is added to the search history
-      $("#currentforecast").text("<Current forecast>"),
+      $("#currentforecast").text("<Current forecast>");
         $("#futureforecast").text("<future forecast>");
       // // WHEN I view current weather conditions for that city
       function displayCityWeather() {
@@ -111,7 +107,7 @@ $("#current").empty();
       // // THEN I am again presented with current and future conditions for that city
       // // WHEN I open the weather dashboard
       // // THEN I am presented with the last searched city forecast
-
+    })
 
       // Function for displaying weather data
       function renderButtons() {
@@ -129,8 +125,7 @@ $("#current").empty();
           button.attr("data-name", city[i]);
           // we need the name on the button
           button.text(city[i]);
-        }
-      }
-    }
-  
-})
+        };
+      };
+    
+  }
