@@ -3,4 +3,9 @@
     background-image: url ("//images.app.goo.gl/WtKSk1YYgvTvVB659");
     /* background-attachment: scroll; */
     color: blueviolet;
-}  
+}; 
+
+.h1{
+    text-decoration-color: coral;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+};

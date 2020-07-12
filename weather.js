@@ -1,35 +1,82 @@
 var APIkey =  "e0d9c528e3291fdb870ce8252b3e562b"
 var queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
 "q=USA&appid=" + APIkey;
-var city = $("#city-input").val();
-
+var card = $("<div>").addClass("card");
+var cardBody = $("<div>").addClass("cardbody");
+var city = $("<p>").addClass("cardText").text("city");// $('.dropdown-toggle').dropdown()
+var temperature = $("<p>").addClass("cardText").text("Temperature");
+var humidity = $("<p>").addClass("cardText").text("Humidity");
+var windSpeed = $("<p>").addClass("cardText").text("Wind-speed");
+var uvIndex = $("<p>").addClass("cardText").text("Uv-Index");
+var citiesStored = localStorage.getItem("city")
+var citySearch = localStorage.getItem("citySearch")
+var currentForecast = $("currentForecast").empty();
+var futureForecast = $("futureForecast");
 // ajax function to obtain weather data
-// / $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   })
-// .then(function(response) {}
-// ```
-// // GIVEN a weather dashboard with form inputs
-$("<State>")
+$.ajax({
+    url: queryUrl,
+    method: "GET"
+  }).then(function(response) {});
+
+// GIVEN a weather dashboard with form inputs
+function getWeather(userInput){
+ $.ajax({
+   url: queryUrl,
+   method: "GET",
+   dataType: "json",
+   success: function (data){
+     if(inputStorage.indexOf(userInput)===-1)
+     inputStorage.push(userInput)
+   window.localStorage.setItem("inputStorage",)
+
+
+
+
+};
+
 
 // // WHEN I search for a city-Event listener need for search city button 
-  // This .on("click") function will trigger the AJAX Call      
-  $.ajax({
-    url:queryUrl  ,
-    method: "GET"
-  }).then(function(response) {
-    $("#find-city").text(JSON.stringify(response));
-  });
-  console.log(this);
-  console.log(event.target);
-     
-// // THEN I am presented with current and future conditions for that city and that city is added to the search history
+$("#searchhistory").on("click", "li", function(){
+getWeather($(this).text());
 
+function searchHistory(text){
+var li = $("<li>").addClass("search-list").text(text);
+$("#searchhistory").append(li)
+
+}
+
+});
+  // This .on("click") function will trigger the AJAX Call 
+$(document).ready(function(){
+  $("searchcity").on("click", function (event){
+  event.preventDefault();
+  var userInput = $("#find-city").val();
+  console.log(event.target);
+  })
+});
+
+// // THEN I am presented with current and future conditions for that city and that city is added to the search history
+$("#currentforecast").text("<Current forecast>"),
+$("#futureforecast").text("<future forecast>");
 // // WHEN I view current weather conditions for that city
+function displayCityWeather(){   
+  var city= $(this).attr("data-name")
+  console.log('city:'+ city)
+  var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q="+ city
+
+$.ajax({
+  url:queryUrl  ,
+  method: "GET"
+}).then(function(response) {
+  $("#find-city").text(JSON.stringify(response));
+}),
+console.log(this);
+console.log(event.target);
+};   
 // // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
 // Transfer content to HTML
 $(".city").text("<h1>" + response.name + " Weather Details</h1>");
+$(".date").text("Date" + response.date);
 $(".wind").text("Wind Speed: " + response.wind.speed);
 $(".humidity").text("Humidity: " + response.main.humidity);
 $(".uv").text("Uv Index" + response.uv.index);
@@ -74,3 +121,4 @@ function renderButtons() {
       button.text(city[i]);
     }
 }
+ }
