@@ -1,6 +1,9 @@
 var APIkey = "e0d9c528e3291fdb870ce8252b3e562b";
 var queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
   "q=USA&appid=" + APIkey;
+var button= document.querySelector('button')
+var userInput=document.querySelector('.userInput')
+
 var card = $("<div>").addClass("card");
 var cardBody = $("<div>").addClass("cardbody");
 var city = $("<p>").addClass("cardText").text("city");// $('.dropdown-toggle').dropdown()
@@ -16,14 +19,15 @@ cardBody.append("#temperature");
 card.append(cardBody);
 $("#current").append(card);
 
+document.getElementById("submitButton").addEventListener('click', function(){
+fetch('https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&='  +userInput.value+
+'&appid=e0d9c528e3291fdb870ce8252b3e562b')
+.then(response => response.json())
+.then(data =>{ console.log(data)
+})
 
-
-// ajax function to obtain weather data
-// $.ajax({
-//   url: queryUrl,
-//   method: "GET"
-// }).then(function (response) { });
-
+.catch(err => alert("Wrong city name"))
+})
 // GIVEN a weather dashboard with form inputs
 function getWeather(userInput) {
   $.ajax({
@@ -39,6 +43,7 @@ function getWeather(userInput) {
     }}
     // // WHEN I search for a city-Event listener need for search city button 
   });
+
     $("#citysearch").on("click", function () {
       getWeather($(this).text());
       console.log(this)
@@ -49,7 +54,7 @@ function getWeather(userInput) {
 
       }
 
-
+    
       // This .on("click") function will trigger the AJAX Call 
       $(document).ready(function () {
         $("searchcity").on("click", function (event) {
