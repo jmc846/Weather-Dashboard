@@ -1,10 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8">
+  <title>Project 21</title>
   <link rel="stylesheet" href="./style.css">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -16,118 +14,45 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-
 </head>
-
 <body>
+   <!-- <section>
+    <h1>Current Weather for </h1>
+    <div class="img" id="data-img"></div>
+    <ul>
+      <li><b>Conditions:</b> <span id="data-current"></span></li>
+      <li><b>Temperature:</b> <span id="data-temp"></span>&deg;</li>
+      <li><b>Humidity:</b> <span id="data-humidity"></span>%</li>
+      <li><b>Wind Speed:</b> <span id="data-wind"></span>mph</li>
+    </ul>
+  </section>    -->
 
-  <div class="container-fluid test-center test-light bg-dark">
-    <h1>WEATHER DASHBOARD</h1>
-  </div>
   <div class="container">
-    <div class="clearfix">
-      <div class="col-4 float-left">
-        <nav class="navbar navbar-light bg-light shadow-lg p-3 mb-5 bg">
-          <h4> SEARCH CITIES:</h4>
-          <form class="form-inline"></form>
-          <input type="text" class="userInput" placeholder=" weather in your city">
-          <input type="submit" value="Submit" id="getweather" class="citysearch">
-          <div class="container">
-            <div class="clearfix">
-              <div class="col-lg-mx-1 pb-2">
-                <div class="card text-whit bg-primary" id="day-1">
-                  <div class="display">
-                    <div class="card body">
-                      <h5 class="card-title" id="date-1"></h5>
-                      <div class="weather-image-container">
-                         <!-- <img alt="day-1-image" id="weather-image-1">  -->
-                         <p class="card-text" class= "currentcity" id ="city"></p>
-                        <p class="card-text"class= "current-temperature" id="temperature"></p>
-                        <p class="card-text" class= "current-humidity"id="humidity"></p>
-                        <p class="card-text" class="current-windspeed"id="windspeed"></p>
-                        <p class="card-text" class="current-uvindex"id="uvindex"></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-mx-1 pb-2">
-                    <div class="card text-whit bg-primary" id="day-2">
-                      <div class="card body">
-                        <h5 class="card-title" id="date-2"></h5>
-                        <div class="weather-image-container">
-                          <!-- - <img alt="day-2-image" id="weather-image-2">  -->
-                          <p class="card-text" class="day-2temperature"id="temperature"></p>
-                          <p class="card-text" class="day-2humidity"id="humidity"></p>
-                          <p class="card-text" class="day-2WindSpeed"id="windspeed"></p>
-                          <p class="card-text" class="day-2uvIndex"id="uvindex"></p>
-                        </div>
-                      </div>
-                    </div>
+    <h1>City Weather Search</h1> 
+<!-- 
+     Rendered Buttons will get Dumped Here   -->
+    <div id="buttons-view"></div>
 
-                    <div class="col-lg-mx-1 pb-2">
-                      <div class="card text-whit bg-primary" id="day-3">
-                        <div class="card body">
-                          <h5 class="card-title" id="date-3"></h5>
-                          <div class="weather-image-container">
-                            <!-- - <img alt="day-3-image" id="weather-image-3">  -->
-                            <p class="card-text" class="day-3temperature"id="temperature"></p>
-                            <p class="card-text" class="day-3humidity"id="humidity"></p>
-                            <p class="card-text" class="day-3WindSpeed"id="windspeed"></p>
-                            <p class="card-text" class="day-3uvIndex"id="uvindex"></p>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
+    <form id="city-form">
+      <label for="city-input">Add a city , get the weather</label>
+      <input type="text" id="weather-input">
+      <br>
 
-                      <div class="col-lg-mx-1 pb-2">
-                        <div class="card text-whit bg-primary" id="day-4">
-                          <div class="card body">
-                            <h5 class="card-title" id="date-4"></h5>
-                            <div class="weather-image-container">
-                              <!-- - <img alt="day-4-image" id="weather-image-4">  -->
-                              <p class="card-text" class="day-4temperature"id="temperature"></p>
-                              <p class="card-text" class="day-4humidity"id="humidity"></p>
-                              <p class="card-text" class="day-4WindSpeed"id="windspeed"></p>
-                              <p class="card-text" class="day-4uvIndex"id="uvindex"></p>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
+      <!-- Button triggers new movie to be added -->
+      <input id="add-weather" type="submit" value="Add a city , get the weather">
+    </form>
 
+    <!--cities will Get Dumped Here -->
+    <div id="weather-view"></div>
 
-                        <div class="col-lg-mx-1 pb-2">
-                          <div class="card text-whit bg-primary" id="day-5">
-                            <div class="card body">
-                              <h5 class="card-title" id="date-5"></h5>
-                              <div class="weather-image-container">
-                                <!-- - <img alt="day-5-image" id="weather-image-5"> -->
-                                <p class="card-text" class="day-5temperature"id="temperature"></p>
-                                <p class="card-text" class="day-5humidity"id="humidity"></p>
-                                <p class="card-text" class="day-5WindSpeed"id="windspeed"></p>
-                                <p class="card-text" class="day-5uvIndex"id="uvindex"></p>
-                              </div>
-                              </div>
-                            </div>
-                          </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+  <script src="./weather.js"></script>
+  
+  </div>
+</div>
 
 
 
-
-                        </div>
-                      </div>
-
-
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-              <script type="text/javascript"></script>
-              <script src="./weather.js"></script>
+  
 </body>
-
-</html>
-
-</html>
