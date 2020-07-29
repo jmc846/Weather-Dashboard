@@ -9,11 +9,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script> -->
-
-
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script> 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
@@ -34,7 +31,7 @@
           <h4> SEARCH CITIES:</h4>
           <form class="form-inline"></form>
           <input type="text" class="userInput" placeholder=" weather in your city">
-          <input type="submit" value="Submit" id="getWeather" class="citysearch">
+          <input type="submit" value="Submit" id="getweather" class="citysearch">
           <div class="container">
             <div class="clearfix">
               <div class="col-lg-mx-1 pb-2">
@@ -43,11 +40,12 @@
                     <div class="card body">
                       <h5 class="card-title" id="date-1"></h5>
                       <div class="weather-image-container">
-                         <img alt="day-1-image" id="weather-image-1"> 
-                        <p class="card-text"class= "currentTemperature" id="temperature"></p>
-                        <p class="card-text" class= "currentHumidity"id="humidity"></p>
-                        <p class="card-text" class="currentWindspeed"id="windspeed"></p>
-                        <p class="card-text" class="currentUvindex"id="uvindex"></p>
+                         <!-- <img alt="day-1-image" id="weather-image-1">  -->
+                         <p class="card-text" class= "currentcity" id ="city"></p>
+                        <p class="card-text"class= "current-temperature" id="temperature"></p>
+                        <p class="card-text" class= "current-humidity"id="humidity"></p>
+                        <p class="card-text" class="current-windspeed"id="windspeed"></p>
+                        <p class="card-text" class="current-uvindex"id="uvindex"></p>
                       </div>
                     </div>
                   </div>
@@ -56,7 +54,7 @@
                       <div class="card body">
                         <h5 class="card-title" id="date-2"></h5>
                         <div class="weather-image-container">
-                          - <img alt="day-2-image" id="weather-image-2"> 
+                          <!-- - <img alt="day-2-image" id="weather-image-2">  -->
                           <p class="card-text" class="day-2temperature"id="temperature"></p>
                           <p class="card-text" class="day-2humidity"id="humidity"></p>
                           <p class="card-text" class="day-2WindSpeed"id="windspeed"></p>
@@ -70,7 +68,7 @@
                         <div class="card body">
                           <h5 class="card-title" id="date-3"></h5>
                           <div class="weather-image-container">
-                            - <img alt="day-3-image" id="weather-image-3"> 
+                            <!-- - <img alt="day-3-image" id="weather-image-3">  -->
                             <p class="card-text" class="day-3temperature"id="temperature"></p>
                             <p class="card-text" class="day-3humidity"id="humidity"></p>
                             <p class="card-text" class="day-3WindSpeed"id="windspeed"></p>
@@ -85,7 +83,7 @@
                           <div class="card body">
                             <h5 class="card-title" id="date-4"></h5>
                             <div class="weather-image-container">
-                              - <img alt="day-4-image" id="weather-image-4"> 
+                              <!-- - <img alt="day-4-image" id="weather-image-4">  -->
                               <p class="card-text" class="day-4temperature"id="temperature"></p>
                               <p class="card-text" class="day-4humidity"id="humidity"></p>
                               <p class="card-text" class="day-4WindSpeed"id="windspeed"></p>
@@ -101,7 +99,7 @@
                             <div class="card body">
                               <h5 class="card-title" id="date-5"></h5>
                               <div class="weather-image-container">
-                                - <img alt="day-5-image" id="weather-image-5">
+                                <!-- - <img alt="day-5-image" id="weather-image-5"> -->
                                 <p class="card-text" class="day-5temperature"id="temperature"></p>
                                 <p class="card-text" class="day-5humidity"id="humidity"></p>
                                 <p class="card-text" class="day-5WindSpeed"id="windspeed"></p>
