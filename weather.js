@@ -2,13 +2,16 @@
       // Initial array of cities
       var cities = ["Kansas City", "Scranton", "El Paso", ""];
       APIkey = "042d0cfc5b5ddf89eef2f4bc2dea16f1";
-      var queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
+      var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
         "q=USA&appid=" + APIkey;
       // displayCityInfo function re-renders the HTML to display the appropriate content
       function displayCityInfo() {
 
         var city = $(this).attr("data-name");
-        var queryURL = "https://api.openweathermap.org/data/2.5/onecall?+lat={lat}&lon={lon}&exclude={part}&appid="+ APIkey; 
+        var queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
+        "q=USA&appid=" + APIkey;
+
+
 
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
