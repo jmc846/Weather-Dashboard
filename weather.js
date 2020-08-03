@@ -6,12 +6,10 @@
       // weatherSearch function re-renders the HTML to display the appropriate content
       function weatherSearch() {
 
-        var city = "";
-
-        var appid = '042d0cfc5b5ddf89eef2f4bc2dea16f1';
-         queryUrl = "https://api.openweathermap.org/data/2.5/onecall?q=" + city + "&appid=" + appid;
-
-        // Creating an AJAX call for the specific movie button being clicked
+        var appid = '9a249045513d63288116edcbd776a2ad';
+        var queryUrl =  'https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${city}&appid=${appid}';
+       
+// Creating an AJAX call for the specific city button being clicked
         $.ajax({
           url: queryUrl,
           method: "GET"
@@ -19,10 +17,13 @@
         .then(function(weatherResponse) {
           console.log(weatherResponse)
           // Creating a div to hold the city
-          var cityDiv = $("<div class='city'>");
+          $('.city').text(weatherResponse.name);
+          $('.wind').text(weatherResponse.wind.speed);
+          $('.humidity').text(weatherResponse.main.humidity);
+      
 
           // Storing the temperature data
-          var temperature = response.temperature;
+          var temperature = weatherResponse.temperature;
 
           // Creating an element to have the temperature displayed
           var pOne = $("<p>").text("Temperature: " + temperature);
