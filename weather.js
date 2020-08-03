@@ -2,23 +2,22 @@
       // Initial array of cities
       var cities = ["Kansas City", "Scranton", "El Paso", ""];
       APIkey = "042d0cfc5b5ddf89eef2f4bc2dea16f1";
-      var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
-        "q=USA&appid=" + APIkey;
-      // displayCityInfo function re-renders the HTML to display the appropriate content
-      function displayCityInfo() {
+     
+      // weatherSearch function re-renders the HTML to display the appropriate content
+      function weatherSearch() {
 
-        var city = $(this).attr("data-name");
-        var queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&%20exclude=hourly,daily&appid=e0d9c528e3291fdb870ce8252b3e562b" +
-        "q=USA&appid=" + APIkey;
+        var city = "";
 
-
+        var appid = '042d0cfc5b5ddf89eef2f4bc2dea16f1';
+         queryUrl = "https://api.openweathermap.org/data/2.5/onecall?q=" + city + "&appid=" + appid;
 
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
-          url: queryURL,
+          url: queryUrl,
           method: "GET"
-        }).then(function(response) {
-
+        })
+        .then(function(weatherResponse) {
+          console.log(weatherResponse)
           // Creating a div to hold the city
           var cityDiv = $("<div class='city'>");
 
@@ -63,6 +62,7 @@
         });
 
       }
+      weatherSearch('london');
 
       // Function for displaying city data
       function renderButtons() {
@@ -88,23 +88,23 @@
         }
       }
 
-      // This function handles events where a city button is clicked
-      $("#add-city").on("click", function(event) {
-        event.preventDefault();
-        // This line grabs the input from the textbox
-        var city = $("#city-input").val().trim();
+      // // This function handles events where a city button is clicked
+      // $("#add-city").on("click", function(event) {
+      //   event.preventDefault();
+      //   // This line grabs the input from the textbox
+      //   var city = $("#city-input").val().trim();
 
-        // Adding city  from the textbox to our array
-        cities.push(movie);
+      //   // Adding city  from the textbox to our array
+      //   cities.push(movie);
 
-        // Calling renderButtons which handles the processing of our city array
-        renderButtons();
-      });
+      //   // Calling renderButtons which handles the processing of our city array
+      //   renderButtons();
+      // });
 
-      // Adding a click event listener to all elements with a class of "city-btn"
-      $(document).on("click", ".city-btn", displayCityInfo);
+      // // Adding a click event listener to all elements with a class of "city-btn"
+      // $(document).on("click", ".city-btn", weatherSearch);
 
-      // Calling the renderButtons function to display the initial buttons
-      renderButtons();
+      // // Calling the renderButtons function to display the initial buttons
+      // renderButtons();
     
 
