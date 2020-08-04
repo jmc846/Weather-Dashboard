@@ -20,6 +20,7 @@
     <h1>Current Weather for </h1>
     <div class="img" id="data-img"></div>
     <ul>
+        <li><b>City:</b> <span id="city"></span></li>
       <li><b>Conditions:</b> <span id="data-current"></span></li>
       <li><b>Temperature:</b> <span id="data-temp"></span>&deg;</li>
       <li><b>Humidity:</b> <span id="data-humidity"></span>%</li>
@@ -33,13 +34,13 @@
      Rendered Buttons will get Dumped Here   -->
     <div id="buttons-view"></div>
 
-    <form id="city-form">
-      <label for="city-input">Add a city , get the weather</label>
-      <input type="text" id="weather-input">
+    <form id="city-form">     <!-- Button triggers new movie to be added -->
+      <input id="add-weather" type="submit" value="Add a city , get the weather">
+      <input type="text" id="weather-city">
       <br>
 
-      <!-- Button triggers new movie to be added -->
-      <input id="add-weather" type="submit" value="Add a city , get the weather">
+ 
+    
     </form>
 
     <!--cities will Get Dumped Here -->

@@ -1,13 +1,14 @@
 
       // Initial array of cities
-      var cities = ["Kansas City", "Scranton", "El Paso", ""];
+      var city = ['new york']
       APIkey = "042d0cfc5b5ddf89eef2f4bc2dea16f1";
      
+          
       // weatherSearch function re-renders the HTML to display the appropriate content
       function weatherSearch() {
 
         var appid = '9a249045513d63288116edcbd776a2ad';
-        var queryUrl =  'https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${city}&appid=${appid}';
+        var queryUrl =  `https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${city}&appid=${appid}`;
        
 // Creating an AJAX call for the specific city button being clicked
         $.ajax({
@@ -16,8 +17,9 @@
         })
         .then(function(weatherResponse) {
           console.log(weatherResponse)
+          
           // Creating a div to hold the city
-          $('.city').text(weatherResponse.name);
+         var cityDiv = $('.city').text(weatherResponse.base);
           $('.wind').text(weatherResponse.wind.speed);
           $('.humidity').text(weatherResponse.main.humidity);
       
@@ -63,7 +65,7 @@
         });
 
       }
-      weatherSearch('london');
+      weatherSearch(`${city}`);
 
       // Function for displaying city data
       function renderButtons() {
@@ -73,7 +75,7 @@
         $("#buttons-view").empty();
 
         // Looping through the array of cities
-        for (var i = 0; i < cities.length; i++) {
+        for (var i = 0; i < city.length; i++) {
 
           // Then dynamicaly generating buttons for each city in the array
           // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -81,31 +83,16 @@
           // Adding a class of city-btn to our button
           a.addClass("city-btn");
           // Adding a data-attribute
-          a.attr("data-name", cities[i]);
+          a.attr("data-name", city[i]);
           // Providing the initial button text
           a.text(cities[i]);
           // Adding the button to the buttons-view div
           $("#buttons-view").append(a);
         }
       }
-
-      // // This function handles events where a city button is clicked
-      // $("#add-city").on("click", function(event) {
-      //   event.preventDefault();
-      //   // This line grabs the input from the textbox
-      //   var city = $("#city-input").val().trim();
-
-      //   // Adding city  from the textbox to our array
-      //   cities.push(movie);
-
-      //   // Calling renderButtons which handles the processing of our city array
-      //   renderButtons();
-      // });
-
-      // // Adding a click event listener to all elements with a class of "city-btn"
-      // $(document).on("click", ".city-btn", weatherSearch);
-
-      // // Calling the renderButtons function to display the initial buttons
-      // renderButtons();
-    
+      $(document).on("click", "#weather-city", function() {
+        console.log("HEY")
+        let city = $(this.text())
+        weatherSearch(city)
+     });
 
