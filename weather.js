@@ -1,11 +1,9 @@
 
       // Initial array of cities
       var city = ['new york']
-      APIkey = "042d0cfc5b5ddf89eef2f4bc2dea16f1";
      
-          
       // weatherSearch function re-renders the HTML to display the appropriate content
-      function weatherSearch() {
+      function weatherSearch(city) {
 
         var appid = '9a249045513d63288116edcbd776a2ad';
         var queryUrl =  `https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${city}&appid=${appid}`;
