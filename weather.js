@@ -1,7 +1,6 @@
 
       // Initial array of cities
-      var city = ['new york']
-     
+      var city = ['denver']
       // weatherSearch function re-renders the HTML to display the appropriate content
       function weatherSearch(city) {
 
@@ -17,13 +16,13 @@
           console.log(weatherResponse)
           
           // Creating a div to hold the city
-         var cityDiv = $('.city').text(weatherResponse.base);
-          $('.wind').text(weatherResponse.wind.speed);
-          $('.humidity').text(weatherResponse.main.humidity);
+         var cityDiv = $('.city').text(weatherResponse.main.name);
+         var windSpeed = $('.wind').text(weatherResponse.wind.speed);
+          var humidity = $('.humidity').text(weatherResponse.main.humidity);
       
 
           // Storing the temperature data
-          var temperature = weatherResponse.temperature;
+          var temperature = weatherResponse.main.temperature;
 
           // Creating an element to have the temperature displayed
           var pOne = $("<p>").text("Temperature: " + temperature);
@@ -32,17 +31,12 @@
           cityDiv.append(pOne);
 
         //   // Storing the release year
-        //   var humidity = response.humidity;
+        humidityDiv = weatherResponse.main.humidity;
 
-        //   // Creating an element to hold the release year
-        //   var pTwo = $("<p>").text("Released: " + released);
+        //   // Creating an element to hold the Windspee
+         var pTwo = $("<p>").text("WindSpeed " + windSpeed);
 
-        //   // Displaying the release year
-        //   movieDiv.append(pTwo);
-
-        //   // Storing the plot
-        //   var plot = response.Plot;
-
+        
         //   // Creating an element to hold the plot
         //   var pThree = $("<p>").text("Plot: " + plot);
 
@@ -64,6 +58,7 @@
 
       }
       weatherSearch(`${city}`);
+      renderButtons ();
 
       // Function for displaying city data
       function renderButtons() {
@@ -83,14 +78,14 @@
           // Adding a data-attribute
           a.attr("data-name", city[i]);
           // Providing the initial button text
-          a.text(cities[i]);
+          a.text(city[i]);
           // Adding the button to the buttons-view div
           $("#buttons-view").append(a);
         }
       }
-      $(document).on("click", "#weather-city", function() {
-        console.log("HEY")
-        let city = $(this.text())
+      $(document).on("click", "#add-weather", function() {
+        console.log(city)
+        let city = $('#weather-city').text
         weatherSearch(city)
      });
 
