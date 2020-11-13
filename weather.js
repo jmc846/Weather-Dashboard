@@ -24,40 +24,38 @@ fetch(`${api.baseurl}/weather?q=${query}&units=metric&APPID=${api.key}`)
 function displayResults (weather) {
 console.log(weather);
 let city = document.querySelector('.location .city');
-console.log('working city');
+console.log('working city', city);
 city.innerText = `${weather.name}, ${weather.sys.country}`;
 //function to display date
 let now = new Date();
-let date = document.querySelector('#date');
-console.log('working date');
+let date = document.querySelector('.location #date');
+console.log('working date', date);
 date.innerText = dateBuilder(now);
 
 //function to display temp
 let temp = document.querySelector('.current .temp');
-console.log('working temp');
+console.log('working temp', temp);
 temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
 
 //fuction to display current weather
 let weather_el = document.querySelector('.current .weather');
-console.log('working weather descrip');
+console.log('working weather descrip', weather_el);
 weather_el.innerText = weather.weather[0].main;
 
 //function to display hi-low temp
 let hilow = document.querySelector('.hi-low');
-console.log('hilow');
+console.log('hilow', hilow);
 hilow.innerText = `${Math.round(weather.main.temp_min)}°C/${Math.round(weather.main.temp_max)}°C`;
 
 //function to display humidity
 let humidity = document.querySelector('.humid');
-console.log('working humid');
-humidity.innerText= weather.main[1]
+console.log('working humid', humidity);
+humidity.innerText= `${weather.main.humidity}%`;
 
 //function to display windspeed
-let windspeed = document.querySelector('windspeed');
-console.log('working Wspeed');
-windspeed.innerText= weather.wind.speed;
-
-
+let windspeed = document.querySelector('.windspeed');
+console.log('working Wspeed', windspeed);
+windspeed.innerText= `${weather.wind.speed}meters per sec`;
 }
 //date functions 
 function dateBuilder (d) {
