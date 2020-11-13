@@ -25,22 +25,28 @@ function displayResults (weather) {
 console.log(weather);
 let city = document.querySelector('.location .city');
 city.innerText = `${weather.name}, ${weather.sys.country}`;
-//cunction to display date
+//function to display date
 let now = new Date();
-let date = document.querySelector('.location .date');
+let date = document.queryGetElementById('date');
 date.innerText = dateBuilder(now);
 //function to display temp
 let temp = document.querySelector('.current .temp');
 temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
-
+//fuction to display current weather
 let weather_el = document.querySelector('.current .weather');
 weather_el.innerText = weather.weather[0].main;
-
+//function to display hi-low temp
 let hilow = document.querySelector('.hi-low');
 hilow.innerText = `${Math.round(weather.main.temp_min)}°C/${Math.round(weather.main.temp_max)}°C`;
-
+//function to display humidity
+let humidity = document.querySelector('.humid');
+humidity.innerText= weather.main[1]
+//function to display windspeed
+let windspeed = document.querySelector('windspeed');
+windspeed.innerText= weather.wind.speed;
 
 }
+//date functions 
 function dateBuilder (d) {
  let months = [ "January","February","March","April","May","June",
  "July","August","September","October","November","December"];
