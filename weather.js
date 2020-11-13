@@ -24,26 +24,39 @@ fetch(`${api.baseurl}/weather?q=${query}&units=metric&APPID=${api.key}`)
 function displayResults (weather) {
 console.log(weather);
 let city = document.querySelector('.location .city');
+console.log('working city');
 city.innerText = `${weather.name}, ${weather.sys.country}`;
 //function to display date
 let now = new Date();
-let date = document.queryGetElementById('date');
+let date = document.querySelector('#date');
+console.log('working date');
 date.innerText = dateBuilder(now);
+
 //function to display temp
 let temp = document.querySelector('.current .temp');
+console.log('working temp');
 temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
+
 //fuction to display current weather
 let weather_el = document.querySelector('.current .weather');
+console.log('working weather descrip');
 weather_el.innerText = weather.weather[0].main;
+
 //function to display hi-low temp
 let hilow = document.querySelector('.hi-low');
+console.log('hilow');
 hilow.innerText = `${Math.round(weather.main.temp_min)}°C/${Math.round(weather.main.temp_max)}°C`;
+
 //function to display humidity
 let humidity = document.querySelector('.humid');
+console.log('working humid');
 humidity.innerText= weather.main[1]
+
 //function to display windspeed
 let windspeed = document.querySelector('windspeed');
+console.log('working Wspeed');
 windspeed.innerText= weather.wind.speed;
+
 
 }
 //date functions 
