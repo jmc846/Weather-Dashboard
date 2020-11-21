@@ -67,5 +67,7 @@ jmc846@scarletmail.rutgers.edu
 [![License](https://poser.pugx.org/ali-irawan/xtra/license.svg)](https://poser.pugx.org/ali-irawan/xtra/license.svg)
     
 ### video:
+
 ![Deployed app video](https://media.giphy.com/media/50Y9mV2w6ABK9Lf1Tz/giphy.gif)
+
 
