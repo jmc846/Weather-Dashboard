@@ -68,6 +68,6 @@ jmc846@scarletmail.rutgers.edu
     
 ### video:
 
-![Deployed app video](https://media.giphy.com/media/50Y9mV2w6ABK9Lf1Tz/giphy.gif)
+![Deployed app video](https://media.giphy.com/media/knj6NxW40x32QTcLMR/giphy.gif)
 
 
